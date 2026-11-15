@@ -1,18 +1,8 @@
 ---
-import { contacts, site } from '../data/site';
+import SocialLinks from './SocialLinks.astro';
+import { site } from '../data/site';
 ---
-
-<footer class="site-foot">
-  <div class="container foot-row">
-    <p>{site.name}, {site.location}</p>
-    <ul>
-      {
-        contacts.map((item) => (
-          <li>
-            <a href={item.href}>{item.label}</a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+<footer class="site-footer container">
+  <div><span>© 2026 Radin Khayyam</span><a href={`mailto:${site.email}`}>{site.email}</a></div>
+  <SocialLinks />
 </footer>

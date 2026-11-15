@@ -1,67 +1,51 @@
-# radinkhayyam.github.io
+# Radin Khayyam
 
-Personal site of Radin Khayyam. Static [Astro](https://astro.build) site, deployed to [https://radinkhayyam.github.io/](https://radinkhayyam.github.io/) by GitHub Actions on every push to `main`.
+Static Astro personal site, rebuilt from the approved Hallmark Dusk H1 / D2 mockups and `content/site-copy.md`.
 
-## Local development
+## Run locally
 
-```bash
+```sh
 npm install
 npm run dev
 ```
 
-`npm run build` writes the site to `dist/`. `npm run preview` serves that build.
+## Build and preview
 
-## Add a blog post
-
-Create `src/content/writing/<slug>.md` or `.mdx`.
-
-```yaml
----
-title: A precise title
-description: One or two sentences for the index, RSS, and the social card.
-date: 2026-11-15
-draft: false
-placeholder: false
----
+```sh
+npm run build
+npm run preview
 ```
 
-- `draft: true` hides the post from the index, the RSS feed, and the production build. Drafts still show while you run `npm run dev`.
-- `placeholder: true` prints a deletion note on the post. The welcome post uses it. Delete `src/content/writing/welcome.md` when a real note replaces it.
-- The URL is `/writing/<slug>`, where `<slug>` is the filename without the extension.
+The build writes `dist/`. The existing GitHub Pages workflow is unchanged. This rebuild has not been pushed or deployed.
 
-## Add photos
+## Structure
 
-1. Put the file in `src/assets/photos/`. JPEG or PNG, about 1600px on the long edge, sRGB.
-2. Import it in `src/data/photos.ts` and append an entry:
+- `/`: night-sky hero, interactive 3D optimizer race, About, six story chapters, research interests, teasers and contact.
+- `/research/`: theory, applied AI, research experience and publications.
+- `/experience/`: industry, teaching and projects with working filters.
+- `/sport/`: full-screen table tennis and running chapters, photographs, history and honors.
+- `/blog/`: approved empty state; `src/content/blog/` is an empty Astro collection for future posts.
+- `/404.html`: custom error page.
 
-| Field | Meaning |
-| --- | --- |
-| `src` | The imported file. Astro resizes it. |
-| `album` | `Table tennis` or `Life & travel`. Add a new name to the `albums` array to open another album. |
-| `caption` | The line under the frame. |
-| `date` | ISO date (`2024-06-01`), or `null` if you do not want one. |
-| `alt` | What the picture shows, for someone who cannot see it. |
+Old routes have been removed. Header and hero links download `public/cv/Radin_Khayyam_CV.pdf`.
 
-The current frames are drawn placeholders. Replace the file and the caption and alt text. Do not use the headshot here. It belongs on About.
+## Content and assets
 
-## Update the CV
+Approved text is in `content/site-copy.md`; `python3 scripts/import-copy.py` refreshes `src/data/copy.json`. Editorial photo notes and confirmation notes are excluded. Keep the source text verbatim.
 
-The public PDF is `public/cv/Radin_Khayyam_CV.pdf`. The source is `cv/Radin_Khayyam_CV.tex`.
+Photos in `public/images/` are WebP at up to 1600px with 600px alternatives, generated with Sharp at quality 80. The university SVG logos are the supplied originals. Wix Madefor Display and Text are self-hosted. `src/styles/dusk-tokens.css` holds the shared theme.
 
-Edit the tex, then compile with [Tectonic](https://tectonic-typesetting.github.io/) (or another engine that provides `moderncv` and `fontawesome5`) and replace the PDF:
+The home canvases use one visibility-aware animation loop each, pause offscreen and in hidden tabs, and respect both the visible pause control and reduced-motion changes. Reduced motion shows a completed race. The race has arrow-key and Enter controls, plus a restart button. All copy, native mobile navigation, project cards and a finished-race image remain available without JavaScript.
 
-```bash
-tectonic cv/Radin_Khayyam_CV.tex --outdir public/cv
+## Verification
+
+With the dev server running and Chrome installed:
+
+```sh
+node scripts/verify.mjs
+node scripts/capture-review.mjs
 ```
 
-Do not put a phone number back into the tex or anywhere else on the site. The contact line keeps the email only. Leave the supporting Drive links as they are.
+Verification covers routes at 1440px, 390px and 320px, accessibility, approved narrative copy, mobile navigation, filters, keyboard interaction, reduced motion, pause and offscreen behavior. `scripts/generate-preview-assets.mjs` captures the finished race and Dusk Open Graph image from the real page, and generates the SVG/PNG favicon pair.
 
-The sports CV is not in this repo. About links to the existing Drive file. Do not promote the athletic record into a headline or the home page. It belongs in Photos, in the reserved Story page, and in that one line on About.
-
-## Story
-
-`/story` is reserved for a later timeline from the national teams to the lab. It is built, marked `noindex`, and left out of the nav and the sitemap.
-
-`src/data/story.ts` exports `storyInNav`. Set it to `true` when the timeline should be linked and indexed, and replace the copy in `src/pages/story.astro`.
-
-The home network reads `src/data/network.ts`. A node may carry `milestone.title`, `milestone.when`, `milestone.href`, and `milestone.note`. The canvas does not show those fields yet. They are there so the same graph can open the timeline later.
+The original photo inputs referenced by `scripts/prepare-images.mjs` are external handoff paths. Normal installs and builds need only the optimized assets already in this repository.

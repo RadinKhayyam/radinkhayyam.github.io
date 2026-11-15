@@ -1,0 +1,7 @@
+{
+  "brief": "/workspace/site/build-review/codex/brief-1.md",
+  "preserved": ["Astro static output", "GitHub Pages workflow", "supplied CV pending email conflict clarification"],
+  "introduced": ["approved Dusk H1 and D2 design", "five requested routes plus 404", "self-hosted Wix fonts", "optimized supplied photographs", "accessible animation lifecycle and mobile navigation"],
+  "copy": "content/site-copy.md, verbatim",
+  "no_publish": true
+}

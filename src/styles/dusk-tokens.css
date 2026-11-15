@@ -1,0 +1,23 @@
+/* Hallmark v2.0.0 · Dusk tokens · approved H1 palette */
+:root{
+ --color-paper:oklch(17.5% 0.014 268);--color-paper-2:oklch(21% 0.016 268);--color-paper-3:oklch(25% 0.017 268);
+ --color-ink:oklch(96% 0.006 75);--color-ink-2:oklch(85% 0.010 262);--color-muted:oklch(70% 0.016 262);
+ --color-rule:oklch(30% 0.016 266);--color-light:oklch(100% 0 0);--color-shade:oklch(10% 0.022 268);
+ --color-accent:oklch(77% 0.10 274);--color-accent-ink:oklch(19% 0.035 274);--color-accent-hi:oklch(84% 0.085 274);
+ --color-accent-soft:oklch(91% 0.038 274);--color-accent-2:oklch(83% 0.095 62);--color-dusk:oklch(70% 0.12 330);
+ --color-sky:oklch(80% 0.07 230);
+ --color-day-ink:oklch(22% 0.022 268);--color-day-muted:oklch(38% 0.022 266);--color-fog:oklch(94% 0.012 70);
+ --glass:oklch(22% 0.018 268 / 0.58);--glass-blur:22px;
+ --glass-hi:inset 0 1px 0 oklch(100% 0 0 / 0.10),inset 0 0 0 1px oklch(100% 0 0 / 0.06);
+ --shadow-card:0 1px 0 oklch(100% 0 0 / 0.06) inset,0 40px 80px -32px oklch(8% 0.02 268 / 0.7);
+ --font-display:"Wix Madefor Display Variable",ui-sans-serif,system-ui,sans-serif;--font-body:"Wix Madefor Text Variable",ui-sans-serif,system-ui,sans-serif;
+ --radius-card:18px;--radius-inner:10px;--radius-pill:999px;--tracking-display:-0.022em;
+ --color-focus:oklch(84% 0.085 274);--color-well:oklch(95.5% 0.008 75);
+ --color-night:oklch(13.2% 0.022 258);--color-night-mid:oklch(15% 0.026 262);--color-night-end:oklch(17.5% 0.03 266);
+ --color-glass-part:oklch(100% 0 0 / .035);--color-ghost:oklch(100% 0 0 / .06);--color-ghost-rule:oklch(100% 0 0 / .14);
+ --color-apricot-soft:oklch(83% 0.095 62 / .10);--color-scrim:oklch(13% 0.02 268 / .88);--color-scrim-mid:oklch(13% 0.02 268 / .66);--color-scrim-light:oklch(13% 0.02 268 / .18);
+ --color-sgd:#9cc9e8;--color-mom:#f3c08c;--color-adam:#aab1f6;
+ --container:1440px;--gutter:72px;--gap:64px;
+ --space-xs:8px;--space-sm:12px;--space-md:16px;--space-lg:24px;--space-xl:40px;--space-2xl:64px;--space-3xl:96px;--space-4xl:144px;
+ --ease-out:cubic-bezier(.2,.7,.2,1);
+}

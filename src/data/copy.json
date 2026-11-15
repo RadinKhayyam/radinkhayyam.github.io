@@ -1,0 +1,166 @@
+{
+  "hero": [
+    "**I study how neural networks learn and generalize, and use that understanding to build AI systems that adapt to people.**",
+    "*I chase the “why” behind things that seem to work.*"
+  ],
+  "about": "I'm an MSc student in Artificial Intelligence at Koç University. Before that, I completed my BSc in Electrical Engineering at Sharif University of Technology. Today my research centers on learning theory: understanding how neural networks learn and why they generalize. My research interests also include recommender systems, personalized AI, LLM agents, and biomedical signal processing. I also have industry experience as an AI Engineer at Solico Group.",
+  "chapters": [
+    {
+      "title": "Table tennis",
+      "date": "2008–2019",
+      "body": "I picked up a racket at five, in 2008, and it shaped my childhood. I won national age-group titles, then spent more than four years on Iran's cadet and junior national teams. 2017 to 2019 were my best years, competing across Asia and Europe, and in 2018 I reached World No. 6 in ITTF Boys Under-15 rankings.\nLink: *The full story is on the Sport page →*"
+    },
+    {
+      "title": "Sharif: exploring electrical engineering",
+      "date": "2020–2025",
+      "body": "I studied Electrical Engineering at Sharif University of Technology from 2020 to 2025. During those years, I explored three areas: IoT and embedded systems, signal processing, and machine learning.\n\n*Summer 2023 · Hong Kong.* During my degree, I spent a summer as a research intern at The Chinese University of Hong Kong. I worked on an authentication system for IoT devices based on signals from the human body. It was my first research experience abroad.\n\n\nFor my BSc thesis, I compared machine learning methods for estimating hand movements from EEG signals. This work became my first paper, published at ICBME 2024."
+    },
+    {
+      "title": "A change of plans",
+      "date": "2025",
+      "body": "In 2025 I received fully funded PhD offers from Rice University, USC, the University of Maryland and UC Riverside. Because of the US travel ban, I couldn't take them up. Losing a goal I had worked toward for years was hard, but I kept moving. I joined Solico Group as an AI Engineer and, a year later, started my MSc at Koç University."
+    },
+    {
+      "title": "Young Olympic Ambassadors, Greece",
+      "date": "June 2025",
+      "body": "I was selected as Iran's sole representative at the 65th International Session for Young Olympic Ambassadors. In Athens and Olympia I worked with delegates from more than 100 countries and presented our group's paper on AI in future Olympic venues."
+    },
+    {
+      "title": "Solico Group",
+      "date": "Aug 2025 – Sep 2026",
+      "body": "As an AI Engineer at Solico Group, I led the R&D of a B2B order-suggestion platform: a three-stage recommender, customer targeting and quantity estimation, plus the data pipeline that feeds them. It taught me what it takes to get models working on real, messy data."
+    },
+    {
+      "title": "Koç and learning theory",
+      "date": "Oct 2026 – now",
+      "body": "Today I'm an MSc student in Artificial Intelligence at Koç University, where I was awarded the Presidential Fellowship. I'm part of Asst. Prof. Zafer Doğan's MLIP group. We use mathematics to answer a simple question: why do neural networks learn and generalize so well? I spent years making models work. Now I want to understand why they do."
+    }
+  ],
+  "work": "**Theory of learning.** How neural networks learn and generalize, studied with tools from high-dimensional probability and statistical physics.\n\n**Recommender systems and personalized AI.** Systems that learn what each person needs.\n\n**Machine learning for healthcare.** Models that make sense of noisy brain and body signals such as EEG.\n\nLink: *Read about my research →*",
+  "contact": "I'm always happy to talk about research, collaborations or interesting problems.",
+  "research": {
+    "intro": "My research has two sides: understanding why modern machine learning works, and building AI systems that work for people.",
+    "theory": "I'm a member of the Machine Learning and Information Processing (MLIP) group at Koç University, led by Asst. Prof. Zafer Doğan. Our research builds mathematical foundations for modern machine learning. Using tools from high-dimensional probability and statistical physics, we study how neural networks learn, generalize, and develop emergent behavior, and how data structure and optimization choices shape that behavior. The goal is a principled understanding that leads to more reliable and efficient AI systems.\n\nWithin this, I'm most interested in three questions:\n\n- **Generalization.** Why do large models that can memorize their training data still perform well on new data?\n- **Classical theory meets deep learning.** Where classical learning theory still explains deep networks, and where it needs new ideas.\n- **Structured data.** How learning changes when data looks like the real world, with structure and correlations, not neat independent samples.\n\nThis track is new, so I don't have publications in it yet.",
+    "applied": "Alongside theory, there are two applied areas I love. They are separate interests, and I've spent real time learning each one and working on its problems.\n\n**Recommender systems and personalized AI.** I'm drawn to a simple question: how can a system learn what one person actually needs? At Solico Group I led a B2B order-suggestion platform, and it showed me that much of applied machine learning is about framing. The real work was turning a business question, \"what should this shop order this week, and how much?\", into retrieval, ranking and quantity-estimation problems that a model can actually solve. Large language models are now changing how systems learn what a person needs. I'm interested in conversational and generative recommender systems, LLM agents that can act on a user's behalf, and the retrieval and search that ground them in real data. I had a first taste of this on a RAG-based shopping assistant at Solico Group, where I helped adapt Gemma 3 4B with LoRA.\n\n**Machine learning for biomedical signals and healthcare.** This is where my path in AI began, during my Sharif years. Brain and body signals are noisy, personal and hard to label, which makes them a demanding test for any model. In my BSc thesis I compared classical and deep models for estimating 3D hand movement from EEG, and published the results at ICBME 2024. At the University of British Columbia, I then worked on cleaning EEG recorded alongside fMRI and brain stimulation. What keeps me here is that progress here shows up directly in people's lives, from better diagnosis to brain-computer interfaces.",
+    "experience": [
+      {
+        "title": "Hand trajectory estimation from EEG signals",
+        "meta": "Sep 2023 – Aug 2024",
+        "body": "BSc thesis, Sharif University of Technology · Advisor: Prof. Mohammad B. Shamsollahi\nI compared classical methods (mLR, PLSR, KRR, MLP, Kalman filter) with deep models (CNN, LSTM, GRU) for estimating 3D hand position from EEG. In the published paper, a CNN-GRU hybrid performed best, with a correlation (PCC) of 0.87 ± 0.02 on the WAY-EEG-GAL dataset.\n[Paper](https://ieeexplore.ieee.org/document/10895673)"
+      },
+      {
+        "title": "Advanced EEG denoising in multimodal neuroimaging",
+        "meta": "Aug 2024 – Jan 2025",
+        "body": "Remote research internship, University of British Columbia · Prof. Sepideh Hajipour\nI worked on an algorithm to denoise EEG recorded at the same time as fMRI and galvanic vestibular stimulation (GVS)."
+      },
+      {
+        "title": "Device authentication using induced body electric potentials",
+        "meta": "Jul – Sep 2023",
+        "body": "In-person research internship, The Chinese University of Hong Kong · Prof. Zhenyu Yan\nI worked on a new authentication system for IoT devices, implementing wireless communication protocols on ARM-based microcontrollers, including the CC2650, to transfer and process the measured data."
+      }
+    ],
+    "publications": "**Radin Khayyam**, Mohammad B. Shamsollahi. \"Comparison of Methods for Hand Trajectory Estimation in 3D Space Using EEG Signals.\" *31st National and 9th International Iranian Conference on Biomedical Engineering (ICBME)*, 2024. [Paper](https://ieeexplore.ieee.org/document/10895673) · [Slides](https://drive.google.com/file/d/1vfxfPBEQrINraJK8Xg00AbBsi5e0A8pd/view?usp=share_link)\n\nFull list: [Google Scholar](https://scholar.google.com.tr/citations?user=Nz0anzQAAAAJ)"
+  },
+  "experience": {
+    "intro": "Where I've applied what I know, from industry to teaching, plus the projects I've built along the way.",
+    "entries": [
+      {
+        "title": "AI Engineer, Solico Group",
+        "meta": "Aug 2025 – Sep 2026 · Full-time · [solico-group.com](https://www.solico-group.com)",
+        "body": "I led the R&D and implementation of a B2B order-suggestion platform for FMCG customers.\n- Built a three-stage recommender: a two-tower retriever trained with contrastive learning, a LightGBM learning-to-rank model, and rule-based reranking for stock and promotions.\n- Developed customer targeting for new or never-bought products, and used feature overrides for cold-start and what-if recommendations.\n- Built a quantity estimator that suggests units when a product goes into a basket, to cut overstocking and expired-product returns.\n- Built a medallion-architecture pipeline that turns daily transaction data into model inputs.\n- Contributed to a shopping-assistant chatbot using RAG, adapting Gemma 3 4B with LoRA."
+      },
+      {
+        "title": "Biomedical Engineering Intern, Atieh Clinic",
+        "meta": "Jul – Sep 2024",
+        "body": "I implemented psychological tasks (Iowa Gambling, Random Dot Motion) in MATLAB/Psychtoolbox, and recorded and pre-processed EEG with EEGLAB."
+      },
+      {
+        "title": "Teaching assistant, Sharif University of Technology",
+        "meta": "",
+        "body": "Introduction to Machine Learning · Digital Signal Processing · Linear Algebra (two semesters, plus Python tutorials) · Biomedical Image and Signal Processing Lab · Bioelectronics. I also mentored teams and held weekly project sessions at an Artificial Intelligence Summer Camp at the Institute for Research in Fundamental Sciences (IPM)."
+      },
+      {
+        "title": "Scientific and Technological Advisor, Iran Table Tennis Federation",
+        "meta": "2024 – present",
+        "body": "Data-driven player performance analysis and technology for coaching."
+      }
+    ],
+    "projects": [
+      {
+        "title": "Lightweight LLMs for Persian news title generation",
+        "meta": "",
+        "body": "I compared zero-shot, few-shot and refined prompting with LoRA fine-tuning of Gemma 3 4B and Llama 3.1 8B on 1,000+ editor-written Persian news pairs. LoRA lifted Llama's ROUGE-L from 0.42 to 0.54. [GitHub](https://github.com/RadinKhayyam/Persian-News-Title-Generation)",
+        "tags": [
+          "Personal"
+        ]
+      },
+      {
+        "title": "EEG signal processing",
+        "meta": "Fall 2023",
+        "body": "Source localization (MNE, WMNE, LORETA, sLORETA), blind source separation (PCA, ICA, DSS, GEVD), SSVEP and P300 detection, and CSP+SVM motor-imagery classification. [GitHub](https://github.com/RadinKhayyam/EEG_Signal_Processing_Course)",
+        "tags": [
+          "Course",
+          "Sharif"
+        ]
+      },
+      {
+        "title": "Neuroscience of learning, memory and cognition",
+        "meta": "Spring 2024",
+        "body": "Phase-synchrony and coupling analysis (PLV, PLI, PAC) of rat LFP, AlexNet fine-tuned on fMRI responses, and a Deep Q-Network agent that learns to navigate a maze. [GitHub](https://github.com/RadinKhayyam/Neuroscience_of_Learning_Memory_and_Cognition_Course)",
+        "tags": [
+          "Course",
+          "Sharif"
+        ]
+      },
+      {
+        "title": "Deep learning",
+        "meta": "Fall 2024",
+        "body": "CNNs for CIFAR-10, MobileNetV2 fine-tuned on Oxford 102 Flowers, an RNN for tweet emotion detection, and multi-sport player tracking. [GitHub](https://github.com/RadinKhayyam/Deep_Learning_Course)",
+        "tags": [
+          "Course",
+          "Sharif"
+        ]
+      },
+      {
+        "title": "Song recognition with audio fingerprinting",
+        "meta": "Spring 2022",
+        "body": "My Signals and Systems final project: a Shazam-style song recognizer in MATLAB. I implemented the FFT and STFT, picked spectrogram peaks as anchor points, hashed them into a searchable database, and tested how reliably it identified songs from short clips as Gaussian noise was added. [GitHub](https://github.com/RadinKhayyam/Signals_and_Systems_Course)",
+        "tags": [
+          "Course",
+          "Sharif"
+        ]
+      }
+    ]
+  },
+  "sport": {
+    "intro": "Sport was my first serious commitment, long before research. It taught me to train when nobody's watching, to lose and come back the next day, and to judge myself by results rather than intentions. I still compete. I've just added a few disciplines.",
+    "chapters": [
+      {
+        "title": "The early years (from age 5).",
+        "body": "I started at five and won my first national medal in 2011, a silver at the Under-9 championships. National titles followed at U9 (2012), U12 (2014, 2015) and U15 (2017, 2018). In 2015 I played my first world event, the ITTF World Hopes in Shanghai, and finished fifth.\n\n"
+      },
+      {
+        "title": "National team, 2015–2019.",
+        "body": "For more than four years I played for Iran's cadet and junior national teams: over 25 international tournaments and 15 international medals. In late 2017 the ITTF invited me to its Rough Diamonds training camp for top under-15 players in Luxembourg.\n"
+      },
+      {
+        "title": "The peak, 2017–2019.",
+        "body": "2018 was my best year. I won gold in cadet singles in Chinese Taipei, took silver in Jordan, and helped the Asian team win silver at the World Cadet Challenge in Tottori. By October I was **World No. 6 in ITTF Boys Under-15 rankings (2018)**, a record for an Iranian player at the time. After moving up an age group, I was ranked 60th in the world in the Under-18 rankings in February 2019.\n"
+      },
+      {
+        "title": "After the peak.",
+        "body": "From 2020 I put my studies first and moved into coaching, but I kept playing in the national senior league and university games. I coached Iran's U11 and U13 teams abroad, became a scientific and technological advisor to the national federation in 2024, and earned the ITTF Level 1 coaching certificate in 2025."
+      }
+    ],
+    "honors": "| Year | Event | Result |\n|---|---|---|\n| 2015 | ITTF World Hopes Week & Challenge, Shanghai | 5th, U12 singles |\n| 2017 | Slovenia Junior & Cadet Open, Otočec | Bronze, cadet singles |\n| 2017 | 21st Slovak Cadet Open, ITTF World Junior Circuit | Silver, cadet doubles |\n| 2017 | Jordan Junior & Cadet Open, Amman | Silver, cadet doubles; bronze, cadet singles and team |\n| 2017 | Croatia Junior & Cadet Open, Varaždin | Bronze, cadet team |\n| 2018 | Oman Junior & Cadet Open, Muscat | Bronze, cadet singles and team |\n| 2018 | Chinese Taipei Junior & Cadet Open, Taipei (June) | **Gold, cadet singles**; bronze, cadet team |\n| 2018 | Jordan Junior & Cadet Open, Amman (July) | Silver, cadet singles; bronze, cadet team |\n| 2018 | ITTF World Cadet Challenge, Tottori | **Silver, team (Asia)**; 13th, singles |\n| 2018 | ITTF world rankings | World No. 6 in ITTF Boys Under-15 rankings (October), a record for an Iranian player at the time |\n| 2019 | ITTF world rankings | World No. 60, Under-18 (February) |\n| 2019 | Belgium Junior & Cadet Open, Spa (January) | Bronze, junior team |\n| 2019 | French Junior & Cadet Open, Metz | Bronze, junior doubles |\n| 2011–2018 | Iran national championships | Titles at U9, U12 and U15 |\n| 2021 | National Senior Premier League | Gold, with Farasanj Club |\n| 2024 | Regional University Games | Silver, doubles; bronze, singles |\n| 2025 | ITTF | Level 1 coaching certificate |",
+    "running": "I took up running in 2025, at a moment when I needed a new goal, and these days most of my training is running. I like that it's simple and honest: the watch doesn't care how you feel.\n\n- **Olympic Day Run, Olympia, Greece**, 14 June 2025: chip time 20:18, during the Young Olympic Ambassadors session. \n- **2nd TehRun 10K, Tehran**, October 2025: 47:24 in my first 10 km race, after three months of early-morning training with my club. [Instagram post](https://www.instagram.com/p/DPoF0_7jl9z/) \n- **6th Kish Island International Marathon**, 5 Dec 2025: 15 km in 74 minutes. \n- **Training with my running club in Tehran**: early-morning sessions with my coach and team."
+  },
+  "blog": {
+    "intro": "Notes on research, learning and the occasional detour.",
+    "empty": "Nothing here yet. The first post is on its way."
+  },
+  "seo": {
+    "title": "Radin Khayyam | Machine learning theory and applied AI",
+    "description": "Radin Khayyam is an MSc student in AI at Koç University, studying how neural networks learn and generalize and building personalized and medical AI. Sharif EE graduate."
+  }
+}

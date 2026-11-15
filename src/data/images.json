@@ -1,0 +1,92 @@
+{
+  "2018-taipei-gold-podium": {
+    "src": "/images/2018-taipei-gold-podium.webp",
+    "width": 1000,
+    "height": 743,
+    "srcset": "/images/2018-taipei-gold-podium-600.webp 600w, /images/2018-taipei-gold-podium.webp 1000w"
+  },
+  "2025-sharif-graduation": {
+    "src": "/images/2025-sharif-graduation.webp",
+    "width": 1000,
+    "height": 1000,
+    "srcset": "/images/2025-sharif-graduation-600.webp 600w, /images/2025-sharif-graduation.webp 1000w"
+  },
+  "2023-cuhk-faculty-of-science": {
+    "src": "/images/2023-cuhk-faculty-of-science.webp",
+    "width": 640,
+    "height": 640,
+    "srcset": "/images/2023-cuhk-faculty-of-science-600.webp 600w, /images/2023-cuhk-faculty-of-science.webp 640w"
+  },
+  "2025-olympia-presenting": {
+    "src": "/images/2025-olympia-presenting.webp",
+    "width": 1000,
+    "height": 667,
+    "srcset": "/images/2025-olympia-presenting-600.webp 600w, /images/2025-olympia-presenting.webp 1000w"
+  },
+  "2026-koc-campus": {
+    "src": "/images/2026-koc-campus.webp",
+    "width": 1600,
+    "height": 2133,
+    "srcset": "/images/2026-koc-campus-600.webp 600w, /images/2026-koc-campus.webp 1600w"
+  },
+  "2023-cuhk-campus": {
+    "src": "/images/2023-cuhk-campus.webp",
+    "width": 1000,
+    "height": 1000,
+    "srcset": "/images/2023-cuhk-campus-600.webp 600w, /images/2023-cuhk-campus.webp 1000w"
+  },
+  "2018-taipei-action-iran-shirt": {
+    "src": "/images/2018-taipei-action-iran-shirt.webp",
+    "width": 1600,
+    "height": 1152,
+    "srcset": "/images/2018-taipei-action-iran-shirt-600.webp 600w, /images/2018-taipei-action-iran-shirt.webp 1600w"
+  },
+  "2017-slovenia-cadet-podium": {
+    "src": "/images/2017-slovenia-cadet-podium.webp",
+    "width": 860,
+    "height": 579,
+    "srcset": "/images/2017-slovenia-cadet-podium-600.webp 600w, /images/2017-slovenia-cadet-podium.webp 860w"
+  },
+  "2018-jordan-action": {
+    "src": "/images/2018-jordan-action.webp",
+    "width": 1000,
+    "height": 575,
+    "srcset": "/images/2018-jordan-action-600.webp 600w, /images/2018-jordan-action.webp 1000w"
+  },
+  "2018-tottori-wcc-asian-silver-podium": {
+    "src": "/images/2018-tottori-wcc-asian-silver-podium.webp",
+    "width": 1000,
+    "height": 485,
+    "srcset": "/images/2018-tottori-wcc-asian-silver-podium-600.webp 600w, /images/2018-tottori-wcc-asian-silver-podium.webp 1000w"
+  },
+  "2022-sulaymaniyah-world-tournament": {
+    "src": "/images/2022-sulaymaniyah-world-tournament.webp",
+    "width": 598,
+    "height": 566,
+    "srcset": "/images/2022-sulaymaniyah-world-tournament-600.webp 598w, /images/2022-sulaymaniyah-world-tournament.webp 598w"
+  },
+  "2025-olympia-day-run": {
+    "src": "/images/2025-olympia-day-run.webp",
+    "width": 360,
+    "height": 480,
+    "srcset": "/images/2025-olympia-day-run-600.webp 360w, /images/2025-olympia-day-run.webp 360w"
+  },
+  "2025-kish-marathon": {
+    "src": "/images/2025-kish-marathon.webp",
+    "width": 1000,
+    "height": 1333,
+    "srcset": "/images/2025-kish-marathon-600.webp 600w, /images/2025-kish-marathon.webp 1000w"
+  },
+  "casual-B-waist": {
+    "src": "/images/casual-B-waist.webp",
+    "width": 825,
+    "height": 1031,
+    "srcset": "/images/casual-B-waist-600.webp 600w, /images/casual-B-waist.webp 825w"
+  },
+  "2025-tehrun-10k": {
+    "src": "/images/2025-tehrun-10k.webp",
+    "width": 1000,
+    "height": 1000,
+    "srcset": "/images/2025-tehrun-10k-600.webp 600w, /images/2025-tehrun-10k.webp 1000w"
+  }
+}

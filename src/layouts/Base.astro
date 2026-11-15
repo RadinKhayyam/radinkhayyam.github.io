@@ -1,82 +1,48 @@
 ---
-import '@fontsource-variable/figtree/wght.css';
-import '@fontsource-variable/newsreader/wght.css';
+import '@fontsource-variable/wix-madefor-display';
+import '@fontsource-variable/wix-madefor-text';
+import '../styles/dusk.css';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
 import { site } from '../data/site';
-
-interface Props {
-  title?: string;
-  description?: string;
-  home?: boolean;
-  noindex?: boolean;
-}
-
-const { title, description = site.description, home = false, noindex = false } = Astro.props;
-const pageTitle = title ? `${title} · ${site.name}` : site.name;
-const origin = Astro.site ?? new URL(site.url);
-const canonical = new URL(Astro.url.pathname, origin).href;
-const image = new URL('/og.png', origin).href;
-const person = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: site.name,
-  email: site.email,
-  url: site.url,
-  jobTitle: 'MSc student in Artificial Intelligence',
-  affiliation: { '@type': 'CollegeOrUniversity', name: 'Koç University' },
-  alumniOf: { '@type': 'CollegeOrUniversity', name: 'Sharif University of Technology' },
-  sameAs: [site.github, site.linkedin, site.x, site.scholar],
-};
+interface Props { title?: string; noindex?: boolean; page?: string; }
+const { title, noindex = false, page = '' } = Astro.props;
+const pageTitle = title ? `${title} | ${site.title}` : site.title;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const image = new URL('/og.png', site.url).href;
 ---
-
 <!doctype html>
-<html lang="en">
+<html lang="en" class:list={[page === 'sport' && 'sport-document']}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={site.description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="alternate" type="application/rss+xml" title={`${site.name} · Writing`} href="/rss.xml" />
-    <meta name="theme-color" content="oklch(16% 0.012 250)" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+    <meta name="theme-color" content="#101117" />
     <meta name="color-scheme" content="dark" />
     {noindex && <meta name="robots" content="noindex" />}
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={site.description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={site.title} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={site.description} />
     <meta name="twitter:image" content={image} />
-    <script type="application/ld+json" set:html={JSON.stringify(person)} />
+    <meta name="twitter:image:alt" content={site.title} />
+    <meta name="twitter:creator" content="@radinkh03" />
   </head>
-  <body>
+  <body class:list={[page]}>
     <a class="skip" href="#content">Skip to content</a>
-    {
-      home ? (
-        <div class="home-shell">
-          <Nav />
-          <slot />
-        </div>
-      ) : (
-        <>
-          <Nav />
-          <main id="content" class="container page">
-            <slot />
-          </main>
-        </>
-      )
-    }
+    <Nav />
+    <main id="content" tabindex="-1"><slot /></main>
     <Footer />
   </body>
 </html>
-
-<style is:global>
-  @import "../styles/global.css";
-</style>

@@ -1,0 +1,8 @@
+---
+import Base from '../layouts/Base.astro';
+import { blog } from '../data/copy.json';
+---
+<Base title="Blog" page="blog">
+  <div class="container page-intro"><h1>Blog</h1><p class="lead">{blog.intro}</p></div>
+  <section class="container blog-empty"><div class="glass"><p>{blog.empty}</p></div></section>
+</Base>

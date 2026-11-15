@@ -1,25 +1,27 @@
 ---
-import { nav } from '../data/site';
-import { storyInNav } from '../data/story';
-
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const items = storyInNav ? [...nav, { href: '/story', label: 'Story' }] : [...nav];
+import { navigation, site } from '../data/site';
+const path = Astro.url.pathname;
 ---
-
-<header class="site-nav">
-  <a class="wordmark" href="/">Radin Khayyam</a>
-  <details class="nav-details">
-    <summary>Menu</summary>
-    <ul>
-      {
-        items.map((item) => (
-          <li>
-            <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>
-              {item.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </details>
+<header class="site-header">
+  <div class="container nav-bar">
+    <a class="wordmark" href="/">Radin Khayyam</a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      {navigation.map(([name, href]) => <a href={href} aria-current={path === href ? 'page' : undefined}>{name}</a>)}
+    </nav>
+    <div class="nav-actions"><a class="btn ghost compact" href={site.cv} download>CV</a>
+      <details class="mobile-menu">
+        <summary>Menu<span class="menu-icon" aria-hidden="true"></span></summary>
+        <nav aria-label="Mobile navigation">{navigation.map(([name, href]) => <a href={href} aria-current={path === href ? 'page' : undefined}>{name}</a>)}<a href="/#contact">Get in touch</a></nav>
+      </details>
+    </div>
+  </div>
 </header>
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.mobile-menu');
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu?.open) { menu.open = false; menu.querySelector('summary')?.focus(); }
+  });
+  document.addEventListener('click', (event) => { if (menu?.open && !menu.contains(event.target as Node)) menu.open = false; });
+  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.open = false; }));
+  matchMedia('(min-width: 1101px)').addEventListener('change', e => { if (e.matches && menu) menu.open = false; });
+</script>

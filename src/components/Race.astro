@@ -1,0 +1,30 @@
+<div class="glass race">
+  <div class="race-heading"><h2>Loss landscape</h2><span id="race-step" class="step">Finished</span></div>
+  <p class="race-subtitle">SGD / Momentum / Adam</p>
+  <div class="race-visual">
+    <img id="race-fallback" src="/images/race-static.webp" width="1152" height="864" alt="SGD, Momentum and Adam paths on a 3D loss surface." />
+    <canvas id="race-canvas" width="576" height="432" tabindex="0" role="button" aria-label="Loss landscape. Use arrow keys to choose a starting point; press Enter to restart."></canvas>
+  </div>
+  <div class="legend" role="group" aria-label="Optimizer loss">
+    <span class="sgd">SGD <b id="loss-sgd"></b></span><span class="mom">Momentum <b id="loss-mom"></b></span><span class="adam">Adam <b id="loss-adam"></b></span>
+  </div>
+  <div class="race-controls" hidden><button type="button" id="restart-race">Restart race</button><button type="button" id="pause-motion" aria-pressed="false">Pause animation</button></div>
+</div>
+<script>
+  import { mountRace3D } from '../scripts/raceview3d.js';
+  import { f } from '../scripts/race.js';
+  import { trailBackdrop } from '../scripts/backdrop.js';
+  mountRace3D(document.querySelector('#race-canvas'), { onUpdate(r) {
+    document.querySelector('#race-step').textContent = r.done ? `Finished · ${r.t} steps` : `Step ${r.t}`;
+    for (const runner of r.runners) document.querySelector(`#loss-${runner.o.key}`).textContent = f(runner.s.x,runner.s.y).toFixed(3);
+  }});
+  trailBackdrop(document.querySelector('#hero-backdrop'));
+  document.querySelector('.race-controls')?.removeAttribute('hidden');
+  const pause = document.querySelector<HTMLButtonElement>('#pause-motion');
+  pause?.addEventListener('click', () => {
+    const paused = pause.getAttribute('aria-pressed') !== 'true';
+    pause.setAttribute('aria-pressed', String(paused));
+    pause.textContent = paused ? 'Resume animation' : 'Pause animation';
+    document.dispatchEvent(new CustomEvent('motion-toggle', { detail: paused }));
+  });
+</script>

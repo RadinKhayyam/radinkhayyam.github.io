@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Pipeline from '../components/Pipeline.astro';
+import { markdown } from '../lib/markdown';
+import { experience } from '../data/copy.json';
+---
+<Base title="Experience & Projects" page="experience">
+  <div class="container page-intro"><h1>Experience &amp; Projects</h1><p class="lead">{experience.intro}</p></div>
+  <section class="container section" aria-labelledby="experience-heading"><h2 id="experience-heading">Experience</h2>
+    <div class="entries">{experience.entries.map((entry,i) => <article class="entry">
+      <div class="entry-heading"><h3>{entry.title}</h3>{entry.meta && <div class="label" set:html={markdown(entry.meta)} />}</div>
+      <div><div class="prose" set:html={markdown(entry.body)} />{i === 0 && <Pipeline />}</div>
+    </article>)}</div>
+  </section>
+  <section class="container section" aria-labelledby="projects-heading"><h2 id="projects-heading">Projects</h2>
+    <div class="project-filters" hidden role="group" aria-label="Filter projects">
+      {['All','Personal','Course','Sharif','Koç'].map(tag => <button type="button" data-filter={tag} aria-pressed={tag === 'All'}>{tag}</button>)}
+    </div>
+    <div class="project-list">{experience.projects.map(project => <article class="glass project" data-tags={project.tags.join(' ')}>
+      <div class="project-heading"><h3>{project.title}</h3><div class="project-meta">{project.tags.map(tag => <span class="tag">{tag}</span>)}{project.meta && <span>{project.meta}</span>}</div></div>
+      <div class="prose" set:html={markdown(project.body)} />
+    </article>)}</div>
+    <p id="project-empty" class="empty-filter" role="status" hidden>No projects in this category yet.</p>
+  </section>
+</Base>
+<script>
+  const filters = document.querySelector<HTMLElement>('.project-filters');
+  if (filters) filters.hidden = false;
+  const projects = [...document.querySelectorAll<HTMLElement>('[data-tags]')];
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+  buttons.forEach(button => button.addEventListener('click', () => {
+    const tag = button.dataset.filter;
+    buttons.forEach(b => b.setAttribute('aria-pressed',String(b === button)));
+    let count = 0;
+    projects.forEach(project => { const show = tag === 'All' || project.dataset.tags?.split(' ').includes(tag!); project.hidden = !show; if(show) count++; });
+    const empty = document.querySelector<HTMLElement>('#project-empty');
+    if(empty) empty.hidden = count !== 0;
+  }));
+</script>

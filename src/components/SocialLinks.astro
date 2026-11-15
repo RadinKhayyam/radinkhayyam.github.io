@@ -1,0 +1,4 @@
+---
+import { links } from '../data/site';
+---
+<div class="social-links">{links.map(([name, href]) => <a href={href} target="_blank" rel="noopener">{name}</a>)}</div>
