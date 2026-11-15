@@ -1,0 +1,25 @@
+---
+import { nav } from '../data/site';
+import { storyInNav } from '../data/story';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const items = storyInNav ? [...nav, { href: '/story', label: 'Story' }] : [...nav];
+---
+
+<header class="site-nav">
+  <a class="wordmark" href="/">Radin Khayyam</a>
+  <details class="nav-details">
+    <summary>Menu</summary>
+    <ul>
+      {
+        items.map((item) => (
+          <li>
+            <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </details>
+</header>

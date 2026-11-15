@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-15T16:10:00.000Z",
+  "title": "Design System: Radin Khayyam",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "oklch(16% 0.012 250)"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Bone",
+        "canonical": "oklch(95.5% 0.014 95)"
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Celadon signal",
+        "canonical": "oklch(82% 0.1 168)"
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "Signal ink",
+        "canonical": "oklch(22% 0.04 168)"
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Name on Home and page titles." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings." },
+      "title": { "displayName": "Title", "purpose": "Entry titles inside a section." },
+      "body": { "displayName": "Body", "purpose": "Prose at 65ch." },
+      "label": { "displayName": "Label", "purpose": "Dates, captions, and the button. Sentence case." }
+    },
+    "shadows": [
+      {
+        "name": "lit-edge",
+        "value": "inset 0 1px 0 oklch(96% 0.012 95 / 0.28)",
+        "purpose": "Top edge of the home window only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Color transitions on links and the button."
+      },
+      {
+        "name": "dur-short",
+        "value": "220ms",
+        "purpose": "Hover color only. Focus is instant."
+      }
+    ],
+    "breakpoints": [
+      { "name": "notebook", "value": "960px" },
+      { "name": "phone", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled action. Email on Home, download on CV.",
+      "html": "<a class=\"ds-btn\" href=\"mailto:radinkhayyam@gmail.com\">Email</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border: 1px solid oklch(82% 0.1 168); border-radius: 8px; background: oklch(82% 0.1 168); color: oklch(22% 0.04 168); font: 500 0.9375rem/1 Figtree, sans-serif; text-decoration: none; } .ds-btn:hover { background: oklch(88% 0.07 168); } .ds-btn:focus-visible { outline: 2px solid oklch(86% 0.09 168); outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The night lab window",
+    "overview": "A research record with a feedforward network on the first screen and one frosted window of identity. Inner pages are a flat, hairline notebook. The athletic record is not a visual theme.",
+    "keyCharacteristics": [
+      "One dark ground",
+      "One frosted window, on Home only",
+      "One celadon signal",
+      "Research copy leads",
+      "Motion only on Home"
+    ],
+    "rules": [
+      {
+        "name": "The one signal rule",
+        "body": "Celadon is the button, the focus color, and the network. It is not a wash behind text.",
+        "section": "colors"
+      },
+      {
+        "name": "The research-first rule",
+        "body": "Do not build a hero, a medal wall, or a second accent from the athletic record.",
+        "section": "colors"
+      },
+      {
+        "name": "The flat notebook rule",
+        "body": "Inner pages use lightness and hairlines. The home window is the only elevated surface.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Lead with Sharif, then Koç, then learning theory, then applications.",
+      "Keep the athletic record to Photos, Story, and one line on About."
+    ],
+    "donts": [
+      "Don't add a light theme or a purple-to-blue gradient.",
+      "Don't publish a phone number, the PhD offers, or an invented research result.",
+      "Don't make table tennis a headline or a home-page element."
+    ]
+  }
+}

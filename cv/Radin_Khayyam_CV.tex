@@ -1,0 +1,314 @@
+\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% modern themes
+\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                                    % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage[english]{babel}
+%\usepackage[x11names, svgnames, dvipsnames]{xcolor}
+\definecolor{Burgundy}{RGB}{139,26,16}
+\definecolor{blue link}{RGB}{71,113,174}
+
+\linespread{1.2}
+\renewcommand{\rmdefault}{lmr} % Preserve bold weights in the desktop LaTeX compiler.
+
+
+% if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                               % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[left=1.5cm,right=1.5cm,top=1cm,bottom=1cm]{geometry}
+\usepackage{multicol}
+\usepackage{needspace}
+%\setlength{\hintscolumnwidth}{3cm}                 % if you want to change the width of the column with the dates
+
+\usepackage{import}
+\usepackage{multicol}
+
+
+
+% personal data
+
+\name{Radin}{Khayyam}
+
+\newcommand*{\customcventry}[7][.25em]{
+	\begin{tabular}{@{}l} 
+		{\bfseries #4}
+	\end{tabular}
+	\hfill% move it to the right
+	\begin{tabular}{l@{}}
+		{\bfseries #5}
+	\end{tabular} \\
+	\begin{tabular}{@{}l} 
+		{\itshape #3}
+	\end{tabular}
+	\hfill% move it to the right
+	\begin{tabular}{l@{}}
+		{\itshape #2}
+	\end{tabular}
+	\ifx&#7&%
+	\else{\\%
+		\begin{minipage}{\maincolumnwidth}%
+			\small#7%
+	\end{minipage}}\fi%
+	\par\addvspace{#1}}
+
+\newcommand*{\customcvproject}[4][.25em]{
+	%   \vfill\noindent
+	\begin{tabular}{@{}l} 
+		{\bfseries #2}
+	\end{tabular}
+	\hfill% move it to the right
+	\begin{tabular}{l@{}}
+		{\itshape #3}
+	\end{tabular}
+	\ifx&#4&%
+	\else{\\%
+		\begin{minipage}{\maincolumnwidth}%
+			\small#4%
+	\end{minipage}}\fi%
+	\par\addvspace{#1}}
+
+\setlength{\tabcolsep}{12pt}
+
+%----------------------------------------------------------------------------------
+%       content
+%----------------------------------------------------------------------------------
+\begin{document}
+	%\begin{CJK*}{UTF8}{gbsn}                           % to typeset your resume in Chinese using CJK
+	%-----       resume       ---------------------------------------------------------	
+ \makecvtitle
+ \vspace{-1.5cm}
+
+	\begin{center}
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{ c c c c }
+			\faGithub\enspace \href{https://github.com/RadinKhayyam}{github.com/RadinKhayyam}  \enspace \faLinkedin\enspace \href{https://www.linkedin.com/in/radin-khayyam/}{linkedin.com/in/radin-khayyam}  \\
+			\faEnvelope\enspace radinkhayyam@gmail.com \enspace  \enspace \\
+		\end{tabular}
+	\end{center}
+	
+    \vspace{-7mm}
+    
+	\section{EDUCATION}
+    \customcventry{October 2026 - Present}{M.Sc. in Artificial Intelligence}{Koç University}{Istanbul, Türkiye}{}{}
+	\customcventry{October 2020 - June 2025}{B.Sc. in Electrical Engineering}{Sharif University of Technology}{Tehran, Iran}{}{}
+	\begin{itemize}
+		\item[--] GPA: \textbf{18.08/20}, \href{https://drive.google.com/file/d/1xb0G3UMFrPR6_VdK-hFIWO8DOwEuEKgZ/view?usp=share_link}{\textcolor{blue link}{[Degree]}}, \href{https://drive.google.com/file/d/1Es8wghvSRvhHpGdkV1DL5RxTR4IFMHGq/view?usp=share_link}{\textcolor{blue link}{[Transcript]}}
+	\end{itemize}
+	\customcventry{October 2017 - June 2020}{Diploma in Mathematics \& Physics}{Allameh Helli High School (NODET)}{Tehran, Iran}{}{}
+	\begin{itemize}
+		\item[--] GPA: \textbf{19.56/20}, \href{https://drive.google.com/file/d/1MYahKXO-GKPNp0Mal03CKn-OioZAOS_m/view?usp=share_link}{\textcolor{blue link}{[Degree]}}, \href{https://drive.google.com/file/d/19djq3UQhfH81OSBXT1YG28veKX4pr2ZK/view?usp=share_link}{\textcolor{blue link}{[Transcript]}}
+	\end{itemize}
+\vspace{-3mm}
+	\section{RESEARCH INTERESTS}
+  \vspace{-4mm}
+	\begin{multicols}{3}
+        \begin{itemize}
+            \item Recommender Systems
+            \item Personalized AI
+            \columnbreak
+            \item Brain-Computer Interfaces
+            \item Learning Theory
+            \columnbreak
+            \item Machine/Deep Learning
+            \item Representation Learning
+        \end{itemize}
+    \end{multicols}
+    
+    \vspace{-7mm}
+
+    \section{PUBLICATIONS}
+	\begin{itemize}
+        \item {Radin Khayyam, Mohammad B. Shamsollahi, "Comparison of Methods for Hand Trajectory Estimation in 3D Space Using EEG Signals", 31st National and 9th International Iranian Conference on Biomedical Engineering (ICBME), 2024.} \href{https://ieeexplore.ieee.org/document/10895673}{\textcolor{blue link}{[Paper]}} \href{https://drive.google.com/file/d/1vfxfPBEQrINraJK8Xg00AbBsi5e0A8pd/view?usp=share_link}{\textcolor{blue link}{[Slides]}} \href{https://drive.google.com/file/d/1_hD0yy5rTJnOLmRosacjQF1sQa0NAspp/view?usp=share_link}{\textcolor{blue link}{[Presentation]}} \href{https://drive.google.com/file/d/1X8ppVzA7Sji_bE4F-lVzJHA7fwukOoqP/view?usp=share_link}{\textcolor{blue link}{[Certificate]}} 
+
+        \end{itemize}
+
+    
+    \vspace{-3mm}
+    \section{WORK EXPERIENCE}
+ \textbf{AI Engineer} \hfill{\emph{August 2025 - September 2026}}\\ \emph{Solico Group} $|$ \emph{Full-time} $|$ \href{https://www.solico-group.com}{\textcolor{blue link}{\emph{www.solico-group.com}}}
+ \begin{itemize}
+ \vspace{2mm}
+     \item Led the R\&D and implementation of a B2B order-suggestion platform for FMCG customers, building working demos for recommendation, customer targeting, and quantity estimation and evaluating the models offline.
+     \vspace{1mm}
+     \item Built a medallion-architecture data pipeline to preprocess transaction-database data daily into inputs for the platform.
+     \vspace{1mm}
+     \item Built a three-stage recommender: a two-tower retriever trained with contrastive learning to learn customer, product, and categorical-feature embeddings; a LightGBM learning-to-rank model using historical features; and rule-based reranking for stock availability and promoted products.
+     \vspace{1mm}
+     \item Used feature overrides for cold-start and what-if recommendations, and developed customer targeting to identify likely buyers of newly launched or previously unpurchased products.
+     \vspace{1mm}
+     \item Developed a quantity estimator that suggests units when a product is added to a basket, aiming to reduce overstocking, understocking, and expired-product returns.
+     \vspace{1mm}
+     \item Contributed to a shopping-assistant chatbot project using web-scraped product data and RAG; applied domain adaptation and instruction tuning to Gemma 3 4B with LoRA for product discovery and basket management.
+     \end{itemize}
+\vspace{2mm}
+     \textbf{Biomedical Engineering Intern} \hfill{\emph{July 2024 - September 2024}}\\ \emph{Atieh Clinic} $|$ \emph{Summer Internship} $|$ \href{https://atiehclinic.com}{\textcolor{blue link}{\emph{www.atiehclinic.com}}}
+ 	\begin{itemize}
+ 		\item Implemented psychological tasks (e.g., Iowa Gambling, Random Dot Motion) in MATLAB/Psychtoolbox and recorded and pre-processed human EEG data with EEGLAB.
+    \end{itemize}
+ 
+    \vspace{-3mm}
+
+	\newpage
+	\section{RESEARCH EXPERIENCE}
+    \textbf{Advanced EEG denoising in multimodal neuroimaging} \hfill{\emph{August 2024 - January 2025}}\\ \emph{Remote research internship} $|$ \emph{University of British Columbia} $|$ \emph{Prof. Sepideh Hajipour} \vspace{2mm}  \begin{itemize}
+        \item Worked on developing an algorithm to denoise EEG signals recorded simultaneously with fMRI and brain stimulation (GVS).
+    \end{itemize} 
+    \vspace{2mm}
+    \textbf{Hand trajectory estimation based on EEG signals} \hfill{\emph{September 2023 - August 2024}} \\ \emph{B. Sc. thesis} $|$ \emph{Sharif University of Technology} $|$ \emph{Prof. Mohammad B. Shamsollahi} \vspace{2mm} \begin{itemize}
+        \item Investigated various estimation methods, including traditional machine learning techniques (mLR, PLSR, KRR, MLP, Kalman Filter) and deep learning models (CNN, LSTM, GRU), to determine the most effective approach for estimating hand position based on EEG signals.
+    \end{itemize}
+    \vspace{2mm}
+    \textbf{Device authentication using induced body electric potentials} \hfill{\emph{July 2023 - September 2023}} \\ \emph{In person research internship} $|$ \emph{Chinese University of Hong Kong} $|$ \emph{Prof. Zhenyu Yan} \vspace{2mm} \begin{itemize}
+        \item Worked on a novel authentication system for IoT devices, implementing wireless communication protocols on ARM-based microcontrollers, including the CC2650, to transfer and process measured data.
+    \end{itemize}
+ \vspace{-3mm}
+
+ \section{SKILLS}
+    \begin{itemize}
+        \item \textbf{Machine Learning:} PyTorch, scikit-learn, LightGBM, XGBoost; retrieval, learning-to-rank, contrastive learning
+        \item \textbf{Programming \& Data:} Python (NumPy, pandas, Polars), SQL, MATLAB (EEGLAB, Psychtoolbox), C/C++, Java
+        \item \textbf{ML Engineering:} MLflow, FastAPI, Docker, Git
+    \end{itemize}
+    
+
+    \section{SELECTED PROJECTS}
+
+    \needspace{5\baselineskip}
+    \textbf{Deep Learning} \href{https://github.com/RadinKhayyam/Deep_Learning_Course}{\textcolor{blue link}{[\faGithub]}} $|$ \emph{Instructor: Prof. Emad Fatemizadeh} \hfill{\emph{Fall 2024}} 
+    \vspace{2mm}
+    \begin{itemize} 
+    \item Designed CNN models in PyTorch for CIFAR-10; fine-tuned MobileNetV2 on Oxford 102 Flowers; built an RNN for tweet emotion detection; completed multi-sport player tracking.
+    \end{itemize}
+
+    \vspace{2mm}
+    \needspace{5\baselineskip}
+    \textbf{Lightweight LLMs for Persian News Title Generation} \href{https://github.com/RadinKhayyam/Persian-News-Title-Generation}{\textcolor{blue link}{[\faGithub]}}
+    \vspace{2mm}
+    \begin{itemize} \item Evaluated Gemma 3 4B and Llama 3.1 8B on 1,000+ editor-written Persian news content--title pairs, comparing zero-shot, few-shot, and refined prompting against LoRA fine-tuning using BLEU, ROUGE-L, METEOR, and BERTScore plus qualitative review. \end{itemize}
+
+    \vspace{2mm}
+    \needspace{5\baselineskip}
+    \textbf{Introduction to Machine Learning} \href{https://github.com/RadinKhayyam/Introduction_to_Machine_Learning_Course}{\textcolor{blue link}{[\faGithub]}} $|$ \emph{Instructor: Prof. Mohammad Shamsollahi} \hfill{\emph{Spring 2024}} 
+    \vspace{2mm}
+    \begin{itemize} \item Implemented a supervised classifier in Python for loan-eligibility prediction from financial and demographic features. \end{itemize}
+
+    \vspace{2mm}
+    \needspace{5\baselineskip}
+    \textbf{EEG Signal Processing} \href{https://github.com/RadinKhayyam/EEG_Signal_Processing_Course}{\textcolor{blue link}{[\faGithub]}} $|$ \emph{Instructor: Prof. Sepideh Hajipour} \hfill{\emph{Fall 2023}} 
+    \vspace{2mm}
+    \begin{itemize} \item Implemented source localization (MNE, WMNE, LORETA, sLORETA), BSS methods (PCA, ICA, DSS, GEVD), SSVEP CCA / P300 detection, and CSP+SVM motor-imagery classification. \end{itemize}
+
+    \vspace{2mm}
+    \needspace{5\baselineskip}
+    \textbf{Neuroscience of Learning, Memory, and Cognition} \href{https://github.com/RadinKhayyam/Neuroscience_of_Learning_Memory_and_Cognition_Course}{\textcolor{blue link}{[\faGithub]}} $|$ \emph{Instructor: Prof. Hamid Aghajan} \hfill{\emph{Spring 2024}} 
+    \vspace{2mm}
+    \begin{itemize} \item Applied PLV, PLI, and PAC on rat LFP; fine-tuned AlexNet on BOLD responses from LOC.
+    \item Implemented a Deep Q-Network (DQN) agent in a maze environment that learned a policy from rewards to navigate toward a goal. \end{itemize}
+
+
+
+    \needspace{12\baselineskip}
+    \section{RELEVANT COURSES}
+    \vspace{-5mm}
+        \begin{multicols}{2}
+        \textbf{Graduate Courses:}
+        \begin{itemize}
+            \item Reinforcement Learning \hfill{\textbf{(In progress)}}
+            \item Modern Learning Theory \hfill{\textbf{(In progress)}}
+            \item Deep Learning \hfill{\textbf{(15.2/20)}}
+            \item EEG Signal Processing \hfill{\textbf{(19.3/20)}}
+            \item Biological Signal Processing \hfill{\textbf{(18/20)}}
+            \item Advanced Biosensors \hfill{\textbf{(19/20)}}
+            \item Neuroscience of Learning, Memory, \hfill{\textbf{(20/20)}}\\ and Cognition 
+        \end{itemize}
+        \columnbreak
+        \textbf{Undergraduate Courses:}
+        \begin{itemize}
+            \item Introduction to Machine Learning \hfill{\textbf{(18.7/20)}}
+            \item Engineering Probability and Statistics \hfill{\textbf{(18/20)}}
+            \item Linear Algebra \hfill{\textbf{(18.7/20)}}
+            \item Digital Signal Processing \hfill{\textbf{(16.6/20)}}
+            \item Signals \& Systems \hfill{\textbf{(17.4/20)}}
+           \item Neuroscience Lab \hfill{\textbf{(18/20)}}
+            \item Medical Signal and Image \hfill{\textbf{(19.6/20)}} \\Processing Lab 
+            % \item Physiology \hfill{\textbf{(20/20)}}
+        \end{itemize}
+        \end{multicols}
+        
+   \vspace{-6mm}
+   \section{TEACHING ASSISTANT EXPERIENCE}
+    \vspace{-5mm}
+    \begin{multicols}{2}
+    \begin{itemize}
+    \item \textbf{Introduction to Machine Learning} \\
+    Designed and graded computer assignments, helping students understand key concepts.
+    \vspace{2mm}
+    \item \textbf{Digital Signal Processing} \\ 
+    Created the final project and reviewed student submissions, giving feedback.
+    \vspace{2mm}
+    \item \textbf{Linear Algebra} (two semesters)\\
+    Designed and graded assignments, and additionally taught Python tutorials.
+    \end{itemize}
+    \columnbreak
+    
+    \begin{itemize}
+    \item \textbf{Biomedical Image and Signal Processing Lab}\\ 
+    Assisted in lab sessions and taught MATLAB tutorials.
+    \vspace{2mm}
+    \item \textbf{Artificial Intelligence Summer Camp} \href{https://drive.google.com/file/d/1zUAI_3UoY_i1v18U4TpTeEUyHadr5hqR/view?usp=share_link}{\textcolor{blue link}{[Certificate]}}  \\
+    Mentored teams and held weekly sessions to guide students through their projects.
+    \vspace{2mm}
+    \item \textbf{Bioelectronics}  \\
+    Designed and graded theoretical assignments, provided solutions to help students learn.
+    \end{itemize}
+    \end{multicols}
+    \vspace{-6mm}
+
+        
+   \section{HONORS AND AWARDS}
+    \begin{itemize}
+
+  \item \textbf{Received the Koç University Presidential Fellowship} \href{https://drive.google.com/file/d/1rkdy2vpEiPgnRiy27K1r-oGOvryMR9RN/view?usp=share_link}{\textcolor{blue link}{[Admission Letter]}} \hfill{\emph{2026}}
+
+  \item \textbf{Received fully funded Ph.D. offers} from Rice University, USC, \hfill{\emph{2025}}
+  \\ University of Maryland, and UCR \href{https://drive.google.com/file/d/1xA8P6UmR1mZA5xhIvorusELynFsfog_T/view?usp=share_link}{\textcolor{blue link}{[Admission Letters]}}
+
+  \item \textbf{Selected as Iran’s sole representative} for the 65th International Session \hfill{\emph{2025}} 
+  \\ for Young Olympic Ambassadors, Greece \href{https://drive.google.com/file/d/1n3MH0inR40NyIY-3ZBGMOi-WiV5PeBEU/view?usp=share_link}{\textcolor{blue link}{[Certificate]}}
+
+    \item \textbf{Scientific and Technological Advisor} to the Iran Table Tennis Federation \href{https://drive.google.com/file/d/1CMkVGN-WpmE1n3HIoA9wU2QhI6EbFbGZ/view?usp=share_link}{\textcolor{blue link}{[Certificate]}} \hfill{\emph{2024}}
+
+\item \textbf{Ranked 101\textsuperscript{st}} in the Mathematics \& Physics Konkur \hfill{\emph{2020}}
+
+  \end{itemize}
+
+    \section{TEST SCORES}
+    \begin{itemize}
+        \item \textbf{GRE General Test - Quantitative Reasoning: 169/170} \href{https://drive.google.com/file/d/1pfSaGtpdD4dJlSVIpj4tE2wNAwVNb2Hh/view?usp=share_link}{\textcolor{blue link}{[Score Report]}} \hfill{\emph{August 2026}}
+        \item \textbf{TOEFL iBT: 98/120} \href{https://drive.google.com/file/d/1Cp73BgpDKzT5YzgmjRD0sJvaR9VQL8JG/view?usp=share_link}{\textcolor{blue link}{[Score Report]}} \hfill{\emph{November 2024}}
+    \end{itemize}
+        
+    \vspace{-2mm}
+    \section{CERTIFICATES}
+        \begin{itemize}
+            \item \textbf{A Comprehensive Course of fMRI in Cognitive Neuroscience} \href{https://drive.google.com/file/d/1pSHAdNUjA29HwdbSiitbg2cin_NpgTJC/view?usp=share_link}{\textcolor{blue link}{[Certificate]}} \hfill{\emph{April 2024}} \\ Institute for Research in Fundamental Sciences (IPM)
+            \item \textbf{Artificial Intelligence and Deep Learning Workshop} \href{https://drive.google.com/file/d/1dfqOSd3fd7roU33iBSn3Lqtq7-H1gBhl/view?usp=share_link}{\textcolor{blue link}{[Certificate]}} \hfill{\emph{March 2023}} \\ Institute for Research in Fundamental Sciences (IPM)
+        \end{itemize}
+
+\section{ATHLETIC EXPERIENCE}
+Professional table tennis background (Iran national teams, 2015--2019); U15 World Championship silver medalist (2018). Details: \href{https://drive.google.com/file/d/1iYFyVzTf1yFYciEZKdIxgTfaY-gfVPqr/view?usp=share_link}{\textcolor{blue link}{[Sports Resume]}}.
+	
+	
+\end{document}
+
+
+%% end of file `template.tex'.
