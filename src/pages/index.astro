@@ -41,7 +41,7 @@ const work = copy.work.split('\n\n').slice(0,3);
       {copy.chapters.map((chapter,i) => <li class:list={['timeline-row',i % 2 === 1 && 'reverse']}>
         <div class="chapter-date"><span>{i+1}.</span><p>{chapter.date}</p></div>
         <span class="timeline-pin" aria-hidden="true"></span>
-        <article class="glass chapter-card">
+        <article class:list={["glass chapter-card", i === 5 && "chapter-card-portrait"]}>
           {photos[i] && <Photo name={photos[i]![0]} alt={photos[i]![1]} />}
           {i === 2 && <div class="university-logos">{[['rice','Rice University'],['usc','USC'],['umd','University of Maryland'],['ucr','UC Riverside']].map(([file,name]) => <div><img src={`/logos/${file}.svg`} alt={name} width="200" height="80" loading="lazy" /></div>)}</div>}
           {i === 4 && <Pipeline />}

@@ -85,3 +85,14 @@ Sloplint’s remaining four `63` flags refer exclusively to arrow text that the 
 - Shared deployment workflow is unchanged.
 
 Detailed machine results and final screenshots are under `/workspace/site/build-review/codex/verification/` and `/workspace/site/build-review/codex/screens-final/`.
+
+## Review round 2
+
+- Research now displays the entire Koç portrait at its natural ratio with a 600px maximum height. Timeline photos use natural heights; the Koç card is limited to 460px, so its frame fits the portrait without side bars. Sport history and race-list photos also use natural ratios and bounds instead of fixed landscape frames.
+- Sport follows the approved sequence: Table tennis chapter, history, Selected honors, Running chapter, race list. Repeated follow-on headings are removed. Both hero anchors resolve to the appropriate content. Kish appears once as a framed photo; its race-list entry is text-only. All four running entries follow source order.
+- Timeline body copy is 17px with 1.6 line height and more desktop padding.
+- The sitemap filter excludes both `/404/` and `/404.html`; built sitemap contains only the five public routes.
+- `npm install`, `npm run build`, the existing `scripts/verify.mjs`, and the new `scripts/verify-review-2.mjs` pass. The existing suite confirms no overflow at 1440/390/320px, no missing narrative copy, no accessibility violations, and working navigation, filters, and animation controls.
+- Round-2 browser checks confirm natural photo frame ratios at 1440/390px, 39 unique local links/assets/anchors resolving, zero console errors, and the expected Sport ordering. Both canvases stay unchanged with reduced motion: the hero trail is drawn and the race is finished. Scroll reveals do not animate. Content on all six routes stays visible without JavaScript.
+- New screenshots and the targeted report: `/workspace/site/build-review/codex/round-2/`. Preview checks used the existing local server on port 4322.
+- No new website strings were invented. No copy remains unplaced. The existing CV was preserved unchanged; its previously documented old-email issue remains outside this review's changes. No push or deployment was performed.

@@ -5,5 +5,5 @@ export default defineConfig({
   output: 'static',
   devToolbar: { enabled: false },
   trailingSlash: 'always',
-  integrations: [sitemap({ filter: (page) => !page.endsWith('/404/') })],
+  integrations: [sitemap({ filter: (page) => !/^\/404(?:\/|\.html)?$/.test(new URL(page).pathname) })],
 });
