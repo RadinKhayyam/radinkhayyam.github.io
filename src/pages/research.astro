@@ -11,11 +11,11 @@ const applied = research.applied.split('\n\n');
     <Photo name="2026-koc-campus" alt="Koç University campus." eager />
   </div>
   <section class="container section research-track" aria-labelledby="theory-heading">
-    <div class="section-heading"><h2 id="theory-heading">Theory of learning</h2><span class="label">Track 1 (main focus)</span></div>
+    <div class="section-heading"><span class="label">Track 1 (main focus)</span><h2 id="theory-heading">Theory of learning</h2></div>
     <div class="glass reading-panel prose" set:html={markdown(research.theory)} />
   </section>
   <section class="container section" aria-labelledby="applied-heading">
-    <div class="section-heading"><h2 id="applied-heading">Applied AI</h2><span class="label">Track 2</span></div>
+    <div class="section-heading"><span class="label">Track 2</span><h2 id="applied-heading">Applied AI</h2></div>
     <p class="section-intro">{applied[0]}</p>
     <div class="applied-grid">{applied.slice(1).map(part => <article class="glass reading-panel prose" set:html={markdown(part)} />)}</div>
   </section>
