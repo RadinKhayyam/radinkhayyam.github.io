@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import { publishedPosts } from '../../lib/posts';
+
+const posts = await publishedPosts();
+const format = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Base
+  title="Writing"
+  description="Notes by Radin Khayyam on learning theory, experiments, and systems he has built."
+>
+  <header class="page-head">
+    <h1>Writing</h1>
+    <p class="lede">
+      Short notes. The piece below is a placeholder, so the section, the layout, and the feed exist. It is meant to be
+      deleted.
+    </p>
+  </header>
+  <ul class="post-list">
+    {
+      posts.map((post) => (
+        <li>
+          <h2>
+            <a href={`/writing/${post.id}`}>{post.data.title}</a>
+          </h2>
+          <p>{post.data.description}</p>
+          <time datetime={post.data.date.toISOString()}>{format.format(post.data.date)}</time>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="byline">
+    <a href="/rss.xml">RSS</a>
+  </p>
+</Base>

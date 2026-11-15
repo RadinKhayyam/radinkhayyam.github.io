@@ -1,0 +1,89 @@
+---
+import { Image, getImage } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { albums, photos } from '../data/photos';
+
+const prepared = await Promise.all(
+  photos.map(async (photo, index) => {
+    const full = await getImage({ src: photo.src, width: 1600, format: 'webp' });
+    return { ...photo, full: full.src, eager: index === 0 };
+  }),
+);
+
+const groups = albums.map((album) => ({
+  album,
+  items: prepared.filter((photo) => photo.album === album),
+}));
+---
+
+<Base
+  title="Photos"
+  description="Photographs of Radin Khayyam. Placeholders for now, in albums for table tennis and for life and travel."
+>
+  <header class="page-head">
+    <h1>Photos</h1>
+    <p class="lede">
+      Placeholders for now. One album is table tennis, the other is life and travel. Real photographs will replace the
+      frames.
+    </p>
+  </header>
+
+  {
+    groups.map((group) => (
+      <section class="album">
+        <h2>{group.album}</h2>
+        <div class="gallery">
+          {group.items.map((photo) => (
+            <figure>
+              <button
+                class="photo-open"
+                type="button"
+                data-full={photo.full}
+                data-alt={photo.alt}
+                data-caption={photo.caption}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  widths={[480, 800, 1200]}
+                  sizes="(min-width: 60rem) 36vw, 100vw"
+                  loading={photo.eager ? 'eager' : 'lazy'}
+                />
+              </button>
+              <figcaption>
+                {photo.caption}
+                {photo.date && <time datetime={photo.date}> {photo.date}</time>}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    ))
+  }
+
+  <dialog class="lightbox" id="lightbox">
+    <div class="lightbox-bar">
+      <form method="dialog">
+        <button class="button" type="submit">Close</button>
+      </form>
+    </div>
+    <img id="lightbox-img" alt="" />
+    <p id="lightbox-cap" class="portrait-cap"></p>
+  </dialog>
+
+  <script>
+    const dialog = document.querySelector<HTMLDialogElement>('#lightbox');
+    const img = document.querySelector<HTMLImageElement>('#lightbox-img');
+    const cap = document.querySelector('#lightbox-cap');
+    if (dialog && img && cap) {
+      document.querySelectorAll<HTMLButtonElement>('.photo-open').forEach((button) => {
+        button.addEventListener('click', () => {
+          img.src = button.dataset.full || '';
+          img.alt = button.dataset.alt || '';
+          cap.textContent = button.dataset.caption || '';
+          dialog.showModal();
+        });
+      });
+    }
+  </script>
+</Base>

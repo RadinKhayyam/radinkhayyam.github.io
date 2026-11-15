@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import NeuralField from '../components/NeuralField.astro';
+import { site } from '../data/site';
+---
+
+<Base home>
+  <main class="stage">
+    <NeuralField />
+    <div class="panel" id="content">
+      <h1>Radin Khayyam</h1>
+      <p class="position">
+        Electrical engineering at Sharif, now an MSc at Koç University: learning theory, and applications of AI.
+      </p>
+      <p class="intro">
+        I studied electrical engineering at Sharif University of Technology, and in October 2026 I started an MSc in
+        artificial intelligence at Koç University in Istanbul, on the Presidential Fellowship. The primary work, with
+        Prof. Zafer Doğan in the MLIP group, is learning theory: generalization, classical theory beside modern deep
+        models, and learning from structured data rather than i.i.d. samples. Applications, including biomedical signals
+        and the systems I built at Solico Group, are the second track.
+      </p>
+      <ul class="panel-links">
+        <li><a href="/about">About</a></li>
+        <li><a href="/research">Research</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/writing">Writing</a></li>
+      </ul>
+      <div class="actions">
+        <a class="button" href={`mailto:${site.email}`}>Email</a>
+        <a href="/cv">Curriculum vitae</a>
+      </div>
+      <div class="featured">
+        <article>
+          <h2>Hand trajectory from EEG</h2>
+          <p>
+            ICBME 2024, with Mohammad B. Shamsollahi. A comparison of methods for estimating a hand’s path in 3D from
+            EEG.
+          </p>
+          <p class="link-row">
+            <a href={site.paper}>Paper</a>
+            <a href={site.slides}>Slides</a>
+          </p>
+        </article>
+        <article>
+          <h2>Applied systems at Solico Group</h2>
+          <p>
+            Retrieval, ranking, and a shopping assistant using retrieval-augmented generation and LoRA. August 2025 to
+            September 2026.
+          </p>
+          <p class="link-row">
+            <a href="/projects">Project notes</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </main>
+</Base>

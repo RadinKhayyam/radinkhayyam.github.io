@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+
+<Base
+  title="Research"
+  description="Radin Khayyam's research has two tracks: learning theory with Prof. Zafer Doğan at Koç University, and applications of AI in biomedical signals, recommender systems, and personalized AI."
+>
+  <header class="page-head">
+    <h1>Research</h1>
+    <p class="lede">
+      Two tracks. Learning theory, with Prof. Zafer Doğan, is the work I am doing now. Applications of AI are the
+      biomedical record and the personalized systems behind it.
+    </p>
+  </header>
+
+  <section class="block">
+    <h2>Learning theory</h2>
+    <p>This is the primary track, and it is ongoing. I do not have a paper to point to yet.</p>
+    <p>
+      I started the MSc in artificial intelligence at Koç University in October 2026, on the Presidential Fellowship.
+      The group is MLIP. The advisor is Prof. Zafer Doğan.
+    </p>
+    <p>Three questions organize the work.</p>
+    <ul class="plain">
+      <li>Generalization of machine learning models.</li>
+      <li>
+        Connecting classical learning theory to modern deep learning, including how models such as transformers behave
+        and what an optimizer does to that behaviour.
+      </li>
+      <li>
+        Learning from structured data that is closer to real-world data, rather than from idealized i.i.d. assumptions.
+      </li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Applications of AI</h2>
+    <p>
+      The second track is applications. Two interests sit here, and neither is the whole of the site. One is
+      recommender systems and personalized AI. The other is biomedical signal processing and AI in healthcare, which is
+      where the EEG and brain-computer interface work belongs. The Solico Group systems are the recommender and
+      language-model side of this track, and they are written up on <a href="/projects">Projects</a>.
+    </p>
+
+    <article class="repo">
+      <div>
+        <h3>ICBME 2024</h3>
+        <p>
+          Radin Khayyam and Mohammad B. Shamsollahi, “Comparison of Methods for Hand Trajectory Estimation in 3D Space
+          Using EEG Signals”, 31st National and 9th International Iranian Conference on Biomedical Engineering (ICBME),
+          2024.
+        </p>
+        <p class="link-row">
+          <a href={site.paper}>Paper</a>
+          <a href={site.slides}>Slides</a>
+        </p>
+      </div>
+      <p class="when">2024</p>
+    </article>
+
+    <article class="repo">
+      <div>
+        <h3>BSc thesis</h3>
+        <p>
+          Hand trajectory estimation based on EEG signals, at Sharif University of Technology, with Prof. Mohammad B.
+          Shamsollahi. I compared mLR, PLSR, KRR, MLP, and a Kalman filter with CNN, LSTM, and GRU models, to see which
+          estimated hand position from EEG most effectively.
+        </p>
+      </div>
+      <p class="when">September 2023 to August 2024</p>
+    </article>
+
+    <article class="repo">
+      <div>
+        <h3>University of British Columbia</h3>
+        <p>
+          Remote research internship with Prof. Sepideh Hajipour on advanced EEG denoising in multimodal neuroimaging. I
+          worked on an algorithm to denoise EEG recorded at the same time as fMRI and brain stimulation (GVS).
+        </p>
+      </div>
+      <p class="when">August 2024 to January 2025</p>
+    </article>
+  </section>
+
+  <section class="block">
+    <h2>Earlier research</h2>
+    <article class="repo">
+      <div>
+        <h3>Chinese University of Hong Kong</h3>
+        <p>
+          In-person internship with Prof. Zhenyu Yan on device authentication using induced body electric potentials. I
+          worked on an authentication system for IoT devices, implementing wireless protocols on ARM microcontrollers,
+          including the CC2650, to transfer and process the measurements.
+        </p>
+      </div>
+      <p class="when">July 2023 to September 2023</p>
+    </article>
+  </section>
+</Base>
