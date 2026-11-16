@@ -16,12 +16,3 @@ const path = Astro.url.pathname;
     </div>
   </div>
 </header>
-<script>
-  const menu = document.querySelector<HTMLDetailsElement>('.mobile-menu');
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && menu?.open) { menu.open = false; menu.querySelector('summary')?.focus(); }
-  });
-  document.addEventListener('click', (event) => { if (menu?.open && !menu.contains(event.target as Node)) menu.open = false; });
-  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.open = false; }));
-  matchMedia('(min-width: 1101px)').addEventListener('change', e => { if (e.matches && menu) menu.open = false; });
-</script>

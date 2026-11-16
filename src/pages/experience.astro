@@ -23,17 +23,3 @@ import { experience } from '../data/copy.json';
     <p id="project-empty" class="empty-filter" role="status" hidden>No projects in this category yet.</p>
   </section>
 </Base>
-<script>
-  const filters = document.querySelector<HTMLElement>('.project-filters');
-  if (filters) filters.hidden = false;
-  const projects = [...document.querySelectorAll<HTMLElement>('[data-tags]')];
-  const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
-  buttons.forEach(button => button.addEventListener('click', () => {
-    const tag = button.dataset.filter;
-    buttons.forEach(b => b.setAttribute('aria-pressed',String(b === button)));
-    let count = 0;
-    projects.forEach(project => { const show = tag === 'All' || project.dataset.tags?.split(' ').includes(tag!); project.hidden = !show; if(show) count++; });
-    const empty = document.querySelector<HTMLElement>('#project-empty');
-    if(empty) empty.hidden = count !== 0;
-  }));
-</script>

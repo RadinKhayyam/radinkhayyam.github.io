@@ -85,8 +85,8 @@
   },
   "casual": {
     "src": "/images/casual-900.webp",
-    "width": 2775,
-    "height": 3701,
+    "width": 1980,
+    "height": 2640,
     "srcset": "/images/casual-600.webp 600w, /images/casual-900.webp 900w, /images/casual-1200.webp 1200w, /images/casual-1600.webp 1600w"
   }
 }

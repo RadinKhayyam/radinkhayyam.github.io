@@ -37,12 +37,14 @@ const work = copy.work.split('\n\n').slice(0,3);
   </section>
   <section class="container section story" aria-labelledby="story-heading">
     <h2 id="story-heading">My story so far</h2>
+    <div class="timeline-shell">
+    <div class="timeline-current" aria-hidden="true"><div class="sticky-years"><span></span><span></span></div></div>
     <ol class="timeline">
       {copy.chapters.map((chapter,i) => <li class:list={['timeline-row',i % 2 === 1 && 'reverse']}>
         <div class="chapter-date"><p>{chapter.date}</p></div>
         <span class="timeline-pin" aria-hidden="true"></span>
         <article class:list={["glass chapter-card", i === 5 && "chapter-card-portrait"]}>
-          {photos[i] && <Photo name={photos[i]![0]} alt={photos[i]![1]} />}
+          {photos[i] && <div class="chapter-photo"><div class="photo-frame"><Photo name={photos[i]![0]} alt={photos[i]![1]} /></div></div>}
           {i === 2 && <div class="university-logos">{[['rice','Rice University'],['usc','USC'],['umd','University of Maryland'],['ucr','UC Riverside']].map(([file,name]) => <div><img src={`/logos/${file}.svg`} alt={name} width="200" height="80" loading="lazy" /></div>)}</div>}
           {i === 4 && <Pipeline />}
           <div class="chapter-body"><h3>{chapter.title}</h3>
@@ -60,6 +62,7 @@ const work = copy.work.split('\n\n').slice(0,3);
         </article>
       </li>)}
     </ol>
+    </div>
   </section>
   <section class="container section work" aria-labelledby="work-heading">
     <h2 id="work-heading">What I work on</h2>
@@ -76,14 +79,3 @@ const work = copy.work.split('\n\n').slice(0,3);
     <SocialLinks />
   </section>
 </Base>
-<script>
-  const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      if (!motion.matches) entry.target.animate([{opacity:.65,transform:'translateX(-16px)'},{opacity:1,transform:'translateX(0)'}],{duration:600,easing:'cubic-bezier(.2,.7,.2,1)'});
-      observer.unobserve(entry.target);
-    }
-  }),{threshold:.15});
-  document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
-  motion.addEventListener('change', () => { if(motion.matches) document.getAnimations().forEach(animation=>animation.finish()); });
-</script>

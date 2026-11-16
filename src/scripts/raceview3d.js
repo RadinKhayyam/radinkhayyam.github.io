@@ -2,6 +2,8 @@ import { XR, YR, Race, f, sampleGrid, contourCells, mix } from './race.js';
 import { animateCanvas } from './motion.js';
 // 3D surface version: shaded surface with thin contour lines, slow camera sway
 export function mountRace3D(cv,opts={}){
+ const controller=new AbortController();
+ const {signal}=controller;
  const motionQuery=matchMedia('(prefers-reduced-motion: reduce)');
  let reduceMotion=motionQuery.matches;
  const ctx=cv.getContext('2d');let W,H,dpr,hover=null,hoverXY=null,ripple=null,lastUser=0,doneAt=0;
@@ -65,9 +67,9 @@ export function mountRace3D(cv,opts={}){
    if(reduceMotion)race.finish();
    clock.redraw();
  }
- cv.addEventListener('pointerdown',e=>{const r=cv.getBoundingClientRect();const px=e.clientX-r.left,py=e.clientY-r.top;const xy=pick(px,py);if(xy)restart(xy,[px,py]);});
- cv.addEventListener('pointermove',e=>{if(reduceMotion||e.pointerType==='touch')return;const r=cv.getBoundingClientRect();hover=[e.clientX-r.left,e.clientY-r.top];hoverXY=pick(...hover);});
- cv.addEventListener('pointerleave',()=>{hover=null;hoverXY=null;});
+ cv.addEventListener('pointerdown',e=>{const r=cv.getBoundingClientRect();const px=e.clientX-r.left,py=e.clientY-r.top;const xy=pick(px,py);if(xy)restart(xy,[px,py]);},{signal,passive:true});
+ cv.addEventListener('pointermove',e=>{if(reduceMotion||e.pointerType==='touch')return;const r=cv.getBoundingClientRect();hover=[e.clientX-r.left,e.clientY-r.top];hoverXY=pick(...hover);},{signal,passive:true});
+ cv.addEventListener('pointerleave',()=>{hover=null;hoverXY=null;},{signal,passive:true});
  cv.addEventListener('keydown',e=>{
    if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter',' '].includes(e.key)){
      e.preventDefault();
@@ -78,11 +80,11 @@ export function mountRace3D(cv,opts={}){
      if(e.key==='Enter'||e.key===' ')restart(keyboardStart);
      else {hoverXY=[...keyboardStart];hover=proj(world(...keyboardStart,f(...keyboardStart)));clock.redraw();}
    }
- });
- document.querySelector('#restart-race')?.addEventListener('click',()=>restart([-2.2,-.3]));
+ },{signal});
+ document.querySelector('#restart-race')?.addEventListener('click',()=>restart([-2.2,-.3]),{signal});
  if(reduceMotion)race.finish();
  const clock=animateCanvas(cv,resize,loop,()=>{reduceMotion=motionQuery.matches;if(reduceMotion){race.finish();ripple=null;hover=null;hoverXY=null;}});
  document.querySelector('#race-fallback')?.setAttribute('hidden','');
  cv.classList.add('ready');
- return race;
+ return {destroy(){controller.abort();clock.destroy();}};
 }

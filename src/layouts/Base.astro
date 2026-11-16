@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import '@fontsource-variable/wix-madefor-display';
 import '@fontsource-variable/wix-madefor-text';
 import '../styles/dusk.css';
@@ -14,6 +15,7 @@ const image = new URL('/og.png', site.url).href;
 <!doctype html>
 <html lang="en" class:list={[page === 'sport' && 'sport-document']}>
   <head>
+    <ClientRouter />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
@@ -46,3 +48,6 @@ const image = new URL('/og.png', site.url).href;
     <Footer />
   </body>
 </html>
+<script>
+  import '../scripts/site.js';
+</script>
