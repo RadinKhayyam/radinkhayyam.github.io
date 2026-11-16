@@ -9,6 +9,22 @@
 html,body{margin:0;overflow-x:clip;background:var(--color-paper)}
 html{color-scheme:dark;scroll-padding-top:100px;scrollbar-color:var(--color-rule) var(--color-paper)}
 body{color:var(--color-ink);font:400 17px/1.6 var(--font-body);-webkit-font-smoothing:antialiased;font-synthesis:none;caret-color:var(--color-accent)}
+/* One continuous research texture beneath the fading scenic layers. */
+body{
+ min-height:100svh;
+ /* Keep reading surfaces dark as the surrounding texture becomes more visible. */
+ --glass:oklch(20% 0.016 268 / .96);
+ background-image:
+  url('/images/loss-contours.svg'),
+  radial-gradient(circle,oklch(77% 0.10 274 / .14) .8px,transparent 1.1px),
+  radial-gradient(ellipse 1000px 950px at 0% 12%,oklch(77% 0.10 274 / .10),transparent 75%),
+  radial-gradient(ellipse 900px 1000px at 100% 38%,oklch(83% 0.095 62 / .08),transparent 75%),
+  radial-gradient(ellipse 1050px 1100px at 10% 65%,oklch(77% 0.10 274 / .09),transparent 75%),
+  radial-gradient(ellipse 950px 900px at 100% 92%,oklch(83% 0.095 62 / .08),transparent 75%);
+ background-size:960px 960px,28px 28px,100% 100%,100% 100%,100% 100%,100% 100%;
+ background-position:center top,center top,0 0,0 0,0 0,0 0;
+ background-repeat:repeat,repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+}
 ::selection{background:var(--color-accent);color:var(--color-accent-ink)}
 h1,h2,h3,p,figure,ol,ul{margin:0}
 h1,h2,h3{font-family:var(--font-display);font-weight:500;letter-spacing:var(--tracking-display);line-height:1.1;overflow-wrap:break-word;min-width:0;text-wrap:balance}
@@ -40,7 +56,7 @@ img{max-width:100%;height:auto;display:block}
 .text-link{display:inline-block;color:var(--color-accent);font-size:16px;margin-top:var(--space-lg)}
 .skip{position:fixed;left:20px;top:12px;z-index:1000;transform:translateY(-150%);padding:var(--space-sm) 20px;background:var(--color-accent);color:var(--color-accent-ink);border-radius:var(--radius-inner)}
 .skip:focus-visible{transform:none}
-.site-header{position:relative;z-index:100;background:var(--color-paper)}
+.site-header{position:relative;z-index:100}
 .nav-bar{height:92px;display:flex;align-items:center;justify-content:space-between;gap:var(--space-lg)}
 .wordmark{font:600 17px/1 var(--font-display);white-space:nowrap;text-decoration:none}
 .desktop-nav{display:flex;align-items:center;gap:26px}
@@ -56,8 +72,12 @@ img{max-width:100%;height:auto;display:block}
 .social-links{display:flex;flex-wrap:wrap;gap:var(--space-sm) var(--space-lg)}
 .social-links a{white-space:nowrap}
 .home .site-header{background:var(--color-night)}
-.hero{position:relative;min-height:calc(100svh - 92px);display:flex;align-items:center;padding-block:36px 100px;background:linear-gradient(180deg,var(--color-night),var(--color-night-mid) 55%,var(--color-night-end));isolation:isolate}
-.hero:after{content:'';position:absolute;inset:78% 0 0;background:linear-gradient(transparent,var(--color-paper));z-index:-1;pointer-events:none}
+.hero{--glass:oklch(22% 0.018 268 / .58)}
+.hero{position:relative;min-height:calc(100svh - 92px);display:flex;align-items:center;padding-block:36px 100px;isolation:isolate}
+/* Mask only scenery: content, glass cards and animation controls stay opaque. */
+.hero,.sport-chapter{--scene-fade:linear-gradient(to bottom,#000 calc(100% - 260px),transparent)}
+.hero:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--color-night),var(--color-night-mid) 55%,var(--color-night-end));z-index:-3;pointer-events:none}
+.hero:before,#hero-backdrop,.sport-scenery,.running-backdrop{-webkit-mask-image:var(--scene-fade);mask-image:var(--scene-fade)}
 #hero-backdrop{position:absolute;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,600px);gap:56px;align-items:center}
 .hero h1{font-size:clamp(54px,5.55vw,80px);letter-spacing:-.035em}
@@ -83,9 +103,10 @@ img{max-width:100%;height:auto;display:block}
 .race-controls{display:flex;justify-content:space-between;gap:var(--space-xs);background:var(--color-apricot-soft);border-radius:var(--radius-inner);padding:0 var(--space-xs)}
 .race-controls button{border:0;padding:10px var(--space-xs);min-height:44px;background:transparent;color:var(--color-accent-2);font-size:13px}
 .race-controls button:hover{color:var(--color-ink)}
-.about{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:80px;align-items:center}
-.portrait{padding:10px}
-.portrait img{width:100%;border-radius:var(--radius-inner)}
+.about{display:grid;grid-template-columns:minmax(0,520px) minmax(0,1fr);gap:80px;align-items:center}
+.portrait{padding:10px;width:100%;max-width:520px;justify-self:center}
+/* Show the complete portrait at 500px wide on desktop, retaining its natural ratio. */
+.portrait img{width:100%;height:auto;border-radius:var(--radius-inner)}
 .about-copy{margin-top:var(--space-lg);font-size:20px;line-height:1.65;color:var(--color-ink-2);max-width:65ch}
 .story{padding-top:140px}
 .story>h2{text-align:center;margin-bottom:72px}
@@ -94,7 +115,6 @@ img{max-width:100%;height:auto;display:block}
 .timeline-row{display:grid;grid-template-columns:minmax(0,1fr) 96px minmax(0,1fr);align-items:start;position:relative;padding-bottom:80px}
 .timeline-row:last-child{padding-bottom:0}
 .chapter-date{grid-column:1;grid-row:1;text-align:right;position:sticky;top:40px}
-.chapter-date span{color:var(--color-accent-2);font-size:14px}
 .chapter-date p{font:500 36px/1.2 var(--font-display);letter-spacing:var(--tracking-display);margin-top:var(--space-xs);font-variant-numeric:tabular-nums}
 .timeline-pin{grid-column:2;grid-row:1;width:13px;height:13px;border-radius:50%;border:2px solid var(--color-accent-2);background:var(--color-paper);justify-self:center;margin-top:10px;z-index:1}
 .chapter-card{grid-column:3;grid-row:1;padding:var(--space-sm)}
@@ -176,6 +196,7 @@ img{max-width:100%;height:auto;display:block}
 .sport-document{scroll-snap-type:y proximity}
 .sport .site-header{position:absolute;inset:0 0 auto;background:transparent}
 .sport-chapter{min-height:100svh;position:relative;display:flex;isolation:isolate;scroll-snap-align:start}
+.sport-scenery{position:absolute;inset:0;z-index:-1;isolation:isolate;pointer-events:none}
 .sport-background{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 12%;z-index:-3}
 .sport-scrim{position:absolute;inset:0;background:linear-gradient(90deg,var(--color-scrim),var(--color-scrim-mid) 42%,var(--color-scrim-light)),linear-gradient(0deg,var(--color-scrim),transparent 65%);z-index:-2}
 .sport-opening-content{display:flex;align-items:flex-end;padding-top:200px;padding-bottom:100px}
@@ -183,7 +204,8 @@ img{max-width:100%;height:auto;display:block}
 .sport-copy h1,.sport-copy h2{font-size:72px;margin-bottom:28px}
 .sport-copy p{font-size:20px;line-height:1.65;color:var(--color-ink-2)}
 .sport-copy .text-link{margin-right:28px;color:var(--color-ink)}
-.running-backdrop{position:absolute;inset:0;background:linear-gradient(90deg,var(--color-scrim),var(--color-scrim-mid)),url('/images/2025-kish-marathon.webp') center/cover;filter:blur(32px);z-index:-1}
+.running-opening{--scene-fade:linear-gradient(to bottom,transparent,#000 260px,#000 calc(100% - 260px),transparent)}
+.running-backdrop{position:absolute;inset:0;background:linear-gradient(90deg,var(--color-scrim),var(--color-scrim-mid)),url('/images/2025-kish-marathon.webp') center/cover;filter:blur(32px);z-index:-1;pointer-events:none}
 .running-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--gap);align-items:center;padding-block:80px}
 .running-portrait{justify-self:end;max-width:450px;padding:10px}
 .running-portrait img{width:auto;height:auto;max-height:70svh;border-radius:var(--radius-inner)}
@@ -218,7 +240,7 @@ img{max-width:100%;height:auto;display:block}
  .running-cards .running-text .prose{margin-top:0}
 }
 @media(min-width:1441px){.hero{padding-block:70px 110px}}
-@media(max-width:1250px){:root{--gutter:48px;--gap:var(--space-xl)}.hero-grid{gap:var(--space-xl);grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.hero h1{font-size:64px}.hero .lead{font-size:20px}.about{gap:var(--gap);grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}.desktop-nav{gap:18px}}
+@media(max-width:1250px){:root{--gutter:48px;--gap:var(--space-xl)}.hero-grid{gap:var(--space-xl);grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.hero h1{font-size:64px}.hero .lead{font-size:20px}.about{gap:var(--gap);grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.desktop-nav{gap:18px}}
 @media(max-width:1100px){
  .desktop-nav{display:none}.mobile-menu{display:block}.mobile-menu summary{display:flex;align-items:center;gap:10px;min-height:44px;padding:var(--space-xs) var(--space-sm);cursor:pointer;list-style:none;font-size:15px}.mobile-menu summary::-webkit-details-marker{display:none}
  .menu-icon{width:18px;height:10px;border-block:1px solid var(--color-ink)}
@@ -234,7 +256,7 @@ img{max-width:100%;height:auto;display:block}
  body{font-size:16px}.nav-bar{height:80px;gap:var(--space-sm)}.wordmark{font-size:16px}.nav-actions{gap:4px}.btn.compact{padding-inline:var(--space-md)}.mobile-menu summary{padding-right:0}.mobile-menu nav{top:72px}
  .section{padding-top:72px;padding-bottom:var(--space-md)}.hero{padding-top:38px;padding-bottom:60px}.hero-grid{gap:var(--space-xl)}.hero h1{font-size:52px;max-width:8ch}.hero .lead{font-size:20px;margin-top:20px}.hero .why{font-size:16px}.hero-actions{margin-top:26px}.contact-link{margin-top:18px}
  .race{padding-top:var(--space-md)}.race-heading{padding-inline:4px}.race-heading h2{font-size:17px}.race-subtitle{padding-inline:4px}.legend{padding-inline:3px;font-size:12px;gap:4px}.legend span{gap:4px}.legend b{font-size:11px}.legend span:before{width:6px;height:6px}.race-controls{padding-inline:2px}.race-controls button{font-size:12px;padding-inline:var(--space-xs)}
- .about{grid-template-columns:minmax(0,1fr);gap:32px}.portrait{max-width:420px}.about-copy{font-size:18px;margin-top:20px}.story>h2{text-align:left;margin-bottom:var(--space-xl)}
+ .about{grid-template-columns:minmax(0,1fr);gap:32px}.portrait{max-width:400px}.about-copy{font-size:18px;margin-top:20px}.story>h2{text-align:left;margin-bottom:var(--space-xl)}
  .timeline:before{left:6px}.timeline-row{grid-template-columns:24px minmax(0,1fr);padding-bottom:48px}.timeline-pin{grid-column:1;justify-self:start;margin-top:var(--space-xs)}.timeline-row .chapter-date{grid-column:2;grid-row:1;position:static;text-align:left;display:flex;gap:var(--space-sm);align-items:baseline}.chapter-date p{font-size:26px;margin-top:0}.timeline-row .chapter-card{grid-column:2;grid-row:2;margin-top:20px}.chapter-card{padding:var(--space-xs)}.chapter-body{padding:20px var(--space-sm) var(--space-sm)}.chapter-body h3{font-size:24px}.hong-kong{padding-left:var(--space-md)}.university-logos>div{height:80px;padding:var(--space-sm)}.university-logos img{height:50px}.pipeline{padding:20px 4px;font-size:11px}.pipeline-stages{gap:6px}.pipeline-outputs{gap:var(--space-xs)}
  .work-row p{display:block}.work-row strong{display:block;font-size:24px;margin-bottom:14px}.work h2{margin-bottom:28px}.teasers{grid-template-columns:minmax(0,1fr);gap:var(--space-lg);padding-top:var(--space-2xl)}.teaser{padding:28px}.teaser h2{font-size:28px}.contact{padding-top:80px}.contact>p{font-size:19px}.social-links{gap:var(--space-sm) 20px}.site-footer{margin-top:72px;padding-block:28px var(--space-xl)}.site-footer>div:first-child{flex-direction:column;gap:var(--space-xs)}
  .page-intro{padding-top:48px;padding-bottom:var(--space-xs)}.page-intro h1{font-size:48px}.page-intro .lead{font-size:20px;margin-top:22px}.research-intro{grid-template-columns:minmax(0,1fr);gap:32px}.section-heading{gap:var(--space-sm);margin-bottom:28px}.reading-panel{padding:var(--space-lg)}.research-track ul{gap:var(--space-lg)}.applied-grid{grid-template-columns:minmax(0,1fr)}.section-intro{font-size:18px}.entry,.project{grid-template-columns:minmax(0,1fr);gap:var(--space-lg)}.entry{padding-block:28px}.entry-heading h3{max-width:none;font-size:25px}.entry-heading .label{font-size:14px}.entries{margin-top:28px}.project{padding:var(--space-lg)}.project h3{font-size:24px}.project-meta{margin-top:var(--space-md)}.project-filters{gap:var(--space-xs)}.project-filters button{padding-inline:14px}.blog-empty{padding-block:32px var(--space-xl)}.blog-empty>.glass{padding:var(--space-xl) var(--space-lg);font-size:22px}

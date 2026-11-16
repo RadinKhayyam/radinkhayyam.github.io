@@ -32,14 +32,14 @@ const work = copy.work.split('\n\n').slice(0,3);
     </div>
   </section>
   <section class="container section about" id="about" aria-labelledby="about-heading">
-    <div class="glass portrait"><Photo name="casual-B-waist" alt="Radin sitting on wooden steps at night, smiling." /></div>
+    <div class="glass portrait"><Photo name="casual" alt="Radin sitting on wooden steps at night, smiling." sizes="(max-width: 760px) min(calc(100vw - 68px), 380px), (max-width: 1250px) min(calc(50vw - 88px), 500px), 500px" /></div>
     <div><h2 id="about-heading">About</h2><p class="about-copy">{copy.about}</p></div>
   </section>
   <section class="container section story" aria-labelledby="story-heading">
     <h2 id="story-heading">My story so far</h2>
     <ol class="timeline">
       {copy.chapters.map((chapter,i) => <li class:list={['timeline-row',i % 2 === 1 && 'reverse']}>
-        <div class="chapter-date"><span>{i+1}.</span><p>{chapter.date}</p></div>
+        <div class="chapter-date"><p>{chapter.date}</p></div>
         <span class="timeline-pin" aria-hidden="true"></span>
         <article class:list={["glass chapter-card", i === 5 && "chapter-card-portrait"]}>
           {photos[i] && <Photo name={photos[i]![0]} alt={photos[i]![1]} />}

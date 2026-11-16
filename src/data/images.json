@@ -77,16 +77,16 @@
     "height": 1333,
     "srcset": "/images/2025-kish-marathon-600.webp 600w, /images/2025-kish-marathon.webp 1000w"
   },
-  "casual-B-waist": {
-    "src": "/images/casual-B-waist.webp",
-    "width": 825,
-    "height": 1031,
-    "srcset": "/images/casual-B-waist-600.webp 600w, /images/casual-B-waist.webp 825w"
-  },
   "2025-tehrun-10k": {
     "src": "/images/2025-tehrun-10k.webp",
     "width": 1000,
     "height": 1000,
     "srcset": "/images/2025-tehrun-10k-600.webp 600w, /images/2025-tehrun-10k.webp 1000w"
+  },
+  "casual": {
+    "src": "/images/casual-900.webp",
+    "width": 2775,
+    "height": 3701,
+    "srcset": "/images/casual-600.webp 600w, /images/casual-900.webp 900w, /images/casual-1200.webp 1200w, /images/casual-1600.webp 1600w"
   }
 }
